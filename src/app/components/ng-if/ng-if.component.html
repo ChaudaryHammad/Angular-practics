@@ -1,0 +1,97 @@
+<!-- 
+<div *ngIf="num1 == num2" class="transition-all w-[200px] h-[100px] bg-blue-500 mb-4">
+
+</div>
+
+<div class="flex gap-2">
+    <button (click) = "showDiv()" class="bg-green-500 text-white px-4 py-2 rounded-md">Show</button>
+
+    <button (click)="hideDiv()" class="bg-red-500 text-white px-4 py-2 rounded-md">Hide</button>
+</div>
+
+<div class="flex gap-2 flex-col w-[200px] mx-auto">
+   <input type="text" [(ngModel)]="num1" class="border border-gray-300 p-2 rounded-md" placeholder="Enter number 1">
+    <input type="text" [(ngModel)]="num2" class="border border-gray-300 p-2 rounded-md" placeholder="Enter number 2">
+    --{{num1 == num2}}
+</div>
+
+<div class="w-[200px] text-center mx-auto">
+{{cityList.length}}
+
+
+    <ul>
+        <li *ngFor="let city of cityList">{{city}}</li>
+    </ul>
+</div>
+
+<br>
+<div>
+    <select name="" id="">
+        <option *ngFor="let emp of empList" [value]="emp.id">
+            {{emp.name}}
+        </option>
+    </select>
+</div>
+
+<br>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    <tr *ngFor="let emp of empList; let sr = index">
+        <td>{{sr+1}}</td>
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.age}}</td>
+    </tr>
+</table> -->
+
+
+
+<h1 class="text-4xl text-center">Attribute Directives</h1>
+
+<div class="w-[200px] h-[100px] border" [ngClass]="divBg">
+
+</div>
+
+
+<br>
+
+<div class="flex gap-2">
+    <button (click) = "addGreen('bg-green-500')" class="bg-green-500 text-white px-4 py-2 rounded-md">Add Green</button>
+
+    <button (click)="addBlue('bg-blue-500')" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add Blue</button>
+</div>
+
+
+<br>
+
+
+<input type="checkbox" [(ngModel)] = "isChecked" class="bg-red-500">  -- <span [ngClass]="isChecked ? 'text-green-500' : 'text-red-500'">
+
+    {{isChecked}}
+</span>
+
+
+<div class="w-[200px] h-[100px] border" [ngClass]="divStyle">
+
+   
+
+</div>
+<br>
+
+<input class="border" type="text" [(ngModel)]="divStyle ">
+
+
+<br>
+
+<div class="w-[200px] h-[100px] border" [ngStyle]="{'background-color':bgCol}">   </div>
+
+<br>
+<p>{{fName()}} {{lName()}}</p>
+
+
+<input type="text" [(ngModel)]="lName" class="border">

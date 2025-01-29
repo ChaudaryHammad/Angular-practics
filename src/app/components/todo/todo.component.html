@@ -1,0 +1,17 @@
+<div class="max-w-[1000px] mx-auto py-10">
+       <div class="flex flex-col justify-center items-center gap-2 mt-2">
+        <input [(ngModel)]="newTodo.title" type="text" class="p-2 border-2 border-gray-300 min-w-[300px] lg:min-w-[830px] rounded-md" placeholder="Title" required>
+        <textarea [(ngModel)]="newTodo.description" name="" id="" class="p-2 border-2 border-gray-300 min-w-[300px] lg:min-w-[830px] rounded-md " rows="5" placeholder="Description"></textarea>
+         <button (click)="addTodo()" class="bg-slate-950 text-slate-400 border border-slate-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
+          <span class="bg-slate-400 shadow-slate-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+          Create Todo
+        </button>
+    </div>
+
+</div>
+<app-todo-list
+[todos]="todos"
+(toggleComplete)="toggleTodoCompletion($event)"
+(deleteTodo)="deleteTodo($event)"
+
+></app-todo-list>

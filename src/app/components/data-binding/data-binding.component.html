@@ -1,0 +1,76 @@
+<p>data-binding works!</p>
+
+<!-- One way data biding we have interpolation, property binding , event binding -->
+
+<div class="grid grid-cols-2 gap-4">
+    <div class="p-4 bg-gray-100">
+     <h1>   1.Interpolation
+    </h1>
+        {{firstName}}
+
+    <h1>{{rollNumber}}</h1>
+    <h1>{{isActive}}</h1>
+    </div>
+    <div class="p-4 bg-gray-100">
+       <h1> 2. Property Binding</h1>
+
+        <input class="border" type="text" [value]="firstName">
+        <br>
+
+        
+        <input class="border mt-2" type="text" [value] = "rollNumber">
+        <br>
+        <input class="border mt-2" type="text" [placeholder] = "myPlaceholder">
+        <br>
+        <div [class] = "divClassName" class="h-[100px] w-[100px]">
+           
+        </div>
+
+
+        <button class="my-2 px-2 py-2 bg-black text-white rounded-md" (click)="showWelcomeMessage('Hehehe')">click me</button>
+<br>
+        <select (change)="onCityChange()" class="my-2">
+            <option value="Lahore">Lahore</option>
+            <option value="Karachi">Karachi</option>
+            <option value="Islamabad">Islamabad</option>
+
+        </select>
+
+
+        <!-- Two way data binding we have ngModel from FormModule -->
+        <br>
+        <input type="text" [(ngModel)]="firstName">
+        <br>
+        <input type="text" [(ngModel)]="rollNumber">
+
+        <br>
+        <select [(ngModel)]="selectedValue" class="my-2">
+            <option value="Lahore">Lahore</option>
+            <option value="Karachi">Karachi</option>
+            <option value="Islamabad">Islamabad</option>
+
+        </select>
+
+        -{{selectedValue}}-
+    </div>
+</div>
+
+
+
+<div>
+    User list comp
+
+    <app-user-list  [name]="'Ali'" [age]="40" (userClicked)="getClick($event)" (incrementCount)="increaseCount($event)" (decrementCount)="decreaseCount($event)" ></app-user-list>
+
+
+    <div class="text-center mt-4">
+        You Clicked : {{currentBtn}}
+    </div>
+
+    <div class="text-center mt-4">
+       <h1>
+        Count : {{count}}
+       </h1>
+    </div>
+
+</div>

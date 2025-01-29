@@ -1,0 +1,73 @@
+<!-- <p>admin works!</p>
+<h1 class="text-center py-4">Template forms</h1>
+
+
+<div class="w-1/2 mx-auto">
+    <form #form="ngForm">
+         <div class=" flex flex-col gap-2">
+            <input class="px-2 py-2 border"  type="text" name="firstName" [(ngModel)]="userObj.firstName" id="" placeholder="First Name" required #fname="ngModel">
+          
+
+           <div *ngIf="fname.errors?.['required'] && fname.touched && fname.dirty ">
+            <span class="text-red-500">First Name is required</span>
+           </div>
+
+
+
+         <input class="px-2 py-2 border" required minlength="4" #lname="ngModel" type="text" name="lastName" [(ngModel)]="userObj.lastName" id="" placeholder="Last Name">
+
+         <div>
+            <span *ngIf="lname.errors?.['required'] && lname.touched" class="text-red-500">Last Name is required</span>
+            <span *ngIf="lname.errors?.['minlength'] && lname.touched " class="text-red-500" >Min(4) characters atleast</span>
+         </div>
+
+
+         <select name="city" id="" [(ngModel)]="userObj.city">
+            <option value="delhi">Delhi</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="bangalore">Bangalore</option>
+            <option value="hyderabad">Hyderabad</option>
+         </select>
+
+         <input type="checkbox" name="term" [(ngModel)]="userObj.term" id="">
+         <button [disabled]="form.invalid" class="px-2 py-2 bg-black rouded-md text-white" type="button" (click)="submitForm()">
+            submit
+         </button>
+         </div>
+    </form>
+</div> -->
+
+
+<!-- Reactive form -->
+
+
+<h1 class="text-center py-10">Rective form</h1>
+
+
+
+<div class="w-1/2 mx-auto">
+    <form [formGroup]="userForm" (ngSubmit)="userFormSubmit()">
+         <div class=" flex flex-col gap-2">
+            <input class="px-2 py-2 border" formControlName="firstName"  type="text" name="firstName" id="" placeholder="First Name" >
+
+            <span *ngIf="userForm.controls['firstName'].errors?.['required'] && userForm.controls['firstName'].touched" class="text-red-500">
+                This is required
+            </span>
+         <input class="px-2 py-2 border" type="text" name="lastName" formControlName="lastName"  id="" placeholder="Last Name">
+         <select name="city" id="" formControlName="city">
+            <option value="delhi">Delhi</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="bangalore">Bangalore</option>
+            <option value="hyderabad">Hyderabad</option>
+         </select>
+         <input type="checkbox" name="term" formControlName="term" id="">
+         <button class="px-2 py-2 bg-black rouded-md text-white" type="submit">
+            submit
+         </button>
+         </div>
+    </form>
+</div>
+
+<div>
+    {{userForm.valid}}
+</div>

@@ -1,0 +1,38 @@
+@if(todos.length > 0) {
+    <h1>
+        <p class="text-4xl py-4 font-bold text-center">AlL Todos</p>
+    </h1>
+}@else {
+    <h1>
+        <p class=" py-4 text-center">No Todos Available</p>
+    </h1>
+}
+<div class="flex gap-2 items-center justify-center mt-2 flex-wrap max-w-[1000px] mx-auto">
+
+
+<div class="
+
+"
+*ngFor="let todo of todos; let i = index">
+    
+<div class="papper" draggable="true">
+    <h1 class="font-bold text-2xl text-center"   [class.line-through]="todo.isCompleted"
+    [class.text-gray-500]="todo.isCompleted">{{ todo.title }}</h1>
+    <p class="px-2 py-2 text-center"  [class.line-through]="todo.isCompleted"
+    [class.text-gray-500]="todo.isCompleted">
+  
+   {{ todo.description }}
+    </p>
+    <div class="hover-icons">
+        <i class="checked-icon">
+            <input  (click)="toggleComplete.emit(i)" type="checkbox" name="" id="">
+            
+        </i>
+     
+      <i (click)="deleteTodo.emit(i)" class="delete-icon">🗑️</i> 
+    </div>
+  </div> 
+  
+
+</div>
+</div>

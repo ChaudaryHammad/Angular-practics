@@ -1,0 +1,28 @@
+
+<div *ngIf="loading">
+    loading
+</div>
+
+
+
+{{Users.isLoading()}}
+{{Users.value()[0] |json}}
+
+
+<div *ngFor="let i of Users.value(); let index = index">
+    {{ i.name | uppercase}} -- {{i.username |lowercase}}
+  </div>
+
+
+  <div>
+    {{studentData | json}}
+  </div>
+
+  {{currentDate | date:'hh:mm' }}
+
+
+  <div>
+    <p>The event will occur on {{ currentDate | date:'dd-MM-yyyy' | uppercase }}.</p>
+  </div>
+{{salary | na}}
+
